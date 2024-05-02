@@ -5,19 +5,18 @@ import org.oracle.aggregators.Aggregator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AggregateReport<T> implements Report {
+public class AggregateReport implements Report {
     private final List<Aggregator> aggregatorList;
-    private String description;
-
+    private final String description;
 
     public AggregateReport(String description) {
+        this.description = description;
         this.aggregatorList =  new ArrayList<>();
     }
 
-    public void addAggregators(Aggregator aggregators) {
+    protected void addAggregators(Aggregator aggregators) {
         this.aggregatorList.add(aggregators);
     }
-
 
     @Override
     public String getDescription() {
@@ -28,9 +27,12 @@ public class AggregateReport<T> implements Report {
     public String getReportBody() {
         StringBuilder builder = new StringBuilder();
         for(Aggregator aggregator: aggregatorList) {
-            builder.append(aggregator.getResult());
+            builder.append(aggregator.getDescription());
+            builder.append(System.lineSeparator());
+            aggregator.getResult().forEach((k, v) -> builder.append(String.format("%-15s : %s%n", k, v)));
             builder.append(System.lineSeparator());
         }
         return builder.toString();
     }
+
 }

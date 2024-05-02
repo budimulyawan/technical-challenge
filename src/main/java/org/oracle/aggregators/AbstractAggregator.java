@@ -13,6 +13,7 @@ public abstract class AbstractAggregator<T1, T2> implements Aggregator {
         this.description = description;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }

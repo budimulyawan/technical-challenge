@@ -6,8 +6,8 @@ public class InputValidationResult {
         this.errorMessage = errorMessage;
     }
 
-    private Boolean isValid;
-    private String errorMessage;
+    private final Boolean isValid;
+    private final String errorMessage;
 
     public Boolean getValid() {
         return isValid;

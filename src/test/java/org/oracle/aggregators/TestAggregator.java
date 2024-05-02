@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.oracle.helpers.HelperUtil.readLines;
+import static org.oracle.helpers.Util.readLines;
 
 public class TestAggregator {
     InputParsingResult setup() throws IOException {
@@ -33,6 +33,8 @@ public class TestAggregator {
         HashMap<String, String> avgResult = avgAggregator.getResult();
         assertNotNull(avgResult);
         assertEquals(3, avgResult.size());
+
+        // TODO:  might want to check whether calculation is correct here
     }
 
     @Test

@@ -29,6 +29,7 @@ public class AggregateReport implements Report {
         for(Aggregator aggregator: aggregatorList) {
             builder.append(aggregator.getDescription());
             builder.append(System.lineSeparator());
+            builder.append(String.format("%-15s : %s%n", aggregator.getGroupByTitle(), aggregator.getAggregateNameTitle()));
             aggregator.getResult().forEach((k, v) -> builder.append(String.format("%-15s : %s%n", k, v)));
             builder.append(System.lineSeparator());
         }

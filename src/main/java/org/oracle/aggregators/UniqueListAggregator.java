@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UniqueListAggregator <T1,T2> extends AbstractAggregator<T1, T2> {
-    public UniqueListAggregator(String description) {
-        super(description);
+    public UniqueListAggregator(String description, String groupByTitle, String aggregateNameTitle ) {
+        super(description, groupByTitle, aggregateNameTitle);
     }
     public HashMap<String,String> getResult() {
         HashMap<String, String> result = new HashMap<>();

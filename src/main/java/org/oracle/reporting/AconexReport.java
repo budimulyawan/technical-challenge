@@ -13,16 +13,20 @@ public class AconexReport extends AggregateReport {
         super(description);
 
         UniqueCountAggregator<Integer, Integer> uniqueCountCustomerIdGroupByContractId
-                = new UniqueCountAggregator<>("The number of unique customerId for each contractId");
+                = new UniqueCountAggregator<>("The number of unique customerId for each contractId",
+                "Contract Id", "Customer Id Count");
 
         UniqueCountAggregator<GeoZoneEnum, Integer> uniqueCountCustomerIdGroupByGeoZone
-                = new UniqueCountAggregator<>("The number of unique customerId for each geozone");
+                = new UniqueCountAggregator<>("The number of unique customerId for each geozone",
+                "GeoZone", "Customer Id Count");
 
         AvgAggregator<GeoZoneEnum,Long> avgAggregator
-                = new AvgAggregator<>("The average buildduration for each geozone");
+                = new AvgAggregator<>("The average buildduration for each geozone",
+                "GeoZone", "Average Build Duration");
 
         UniqueListAggregator<GeoZoneEnum, Integer> uniqueListCustomerIdGroupByGeoZone
-                = new UniqueListAggregator<>("The list of unique customerId for each geozone");
+                = new UniqueListAggregator<>("The list of unique customerId for each geozone",
+                "GeoZone", "List Customer Id");
 
         this.addAggregators(uniqueCountCustomerIdGroupByContractId);
         this.addAggregators(uniqueCountCustomerIdGroupByGeoZone);

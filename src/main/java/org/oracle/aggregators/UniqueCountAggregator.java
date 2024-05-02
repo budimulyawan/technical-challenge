@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class UniqueCountAggregator <T1,T2> extends AbstractAggregator<T1, T2> {
-    public UniqueCountAggregator(String description) {
-        super(description);
+    public UniqueCountAggregator(String description, String groupByTitle, String aggregateNameTitle ) {
+        super(description, groupByTitle, aggregateNameTitle);
     }
     public HashMap<String,String> getResult() {
         HashMap<String, String> result = new HashMap<>();

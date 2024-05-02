@@ -6,8 +6,8 @@ import java.util.OptionalDouble;
 
 public class AvgAggregator<T1,T2> extends AbstractAggregator<T1, T2> {
 
-    public AvgAggregator(String description) {
-        super(description);
+    public AvgAggregator(String description, String groupByTitle, String aggregateNameTitle ) {
+        super(description, groupByTitle, aggregateNameTitle);
     }
 
     public HashMap<String,String> getResult() {

@@ -26,7 +26,8 @@ public class TestAggregator {
     void testAverageSuccessResult() throws IOException {
         InputParsingResult inputParsingResult = setup();
 
-        AvgAggregator<String, Long> avgAggregator = new AvgAggregator<>("Average duration for each GeoZone");
+        AvgAggregator<String, Long> avgAggregator
+                = new AvgAggregator<>("Average duration for each GeoZone", "GeoZone", "Average Duration");
         for (CustomerProjectData data : inputParsingResult.getCustomerProjectList()) {
             avgAggregator.addFieldValues(data.getGeoZoneEnum().toString(), data.getDuration().toSeconds());
         }
@@ -41,7 +42,9 @@ public class TestAggregator {
     void testUniqueListSuccessResult() throws IOException {
         InputParsingResult inputParsingResult = setup();
 
-        UniqueListAggregator<String, Integer> avgAggregator = new UniqueListAggregator<>("The list of unique customerId for each geozone");
+        UniqueListAggregator<String, Integer> avgAggregator
+                = new UniqueListAggregator<>("The list of unique customerId for each geozone", "GeoZone", "Customer Id");
+
         for (CustomerProjectData data : inputParsingResult.getCustomerProjectList()) {
             avgAggregator.addFieldValues(data.getGeoZoneEnum().toString(), data.getCustomerId());
         }
@@ -57,7 +60,8 @@ public class TestAggregator {
     void testUniqueCountSuccessResult() throws IOException {
         InputParsingResult inputParsingResult = setup();
 
-        UniqueCountAggregator<String, Integer> avgAggregator = new UniqueCountAggregator<>("The unique count of customerId for each geozone");
+        UniqueCountAggregator<String, Integer> avgAggregator
+                = new UniqueCountAggregator<>("The unique count of customerId for each geozone", "GeoZone", "Customer Id Count");
         for (CustomerProjectData data : inputParsingResult.getCustomerProjectList()) {
             avgAggregator.addFieldValues(data.getGeoZoneEnum().toString(), data.getCustomerId());
         }
@@ -72,7 +76,8 @@ public class TestAggregator {
     void testUniqueCountWithDuplicateSuccessResult() throws IOException {
         InputParsingResult inputParsingResult = setup();
 
-        UniqueCountAggregator<String, Integer> avgAggregator = new UniqueCountAggregator<>("The unique count of customerId for each geozone");
+        UniqueCountAggregator<String, Integer> avgAggregator
+                = new UniqueCountAggregator<>("The unique count of customerId for each geozone",  "GeoZone", "Customer Id Count");
         for (CustomerProjectData data : inputParsingResult.getCustomerProjectList()) {
             avgAggregator.addFieldValues(data.getGeoZoneEnum().toString(), data.getCustomerId());
         }
